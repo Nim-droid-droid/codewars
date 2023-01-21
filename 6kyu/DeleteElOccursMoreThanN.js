@@ -38,6 +38,12 @@ deleteNth([1,1,3,3,7,2,2,2,2], 3)  //[1, 1, 3, 3, 7, 2, 2, 2]
 
 //  Reduce version
 // or reduce() (Since I'm returning/reducing it down to 1 value - return arr with elements <= n times), filter() (filter out all arr elmnts <= n times))
+function deleteNth(arr,n){
+  return arr.reduce((acc, el) => {
+    if (acc.filter(e => e === el).length < n) acc.push(el);
+    return acc;
+  }, [])
+}
 
 // regex version
   // Can i to use regex for search (instead of object for val storage) and only return el that matches the number of N
