@@ -21,7 +21,6 @@ function likes(names) {
   // return names.map(el => el)
   // return [...names]
 
-  // i couldn't find a solution using declarative paradigm so I had to use imperative paradigm instead.
   // used arr instead of obj cuz i dont need to have a key, just index into teomplate arr using names.length to push in the names from names arr into template arr Placeholders.
   let template = [
     'no one likes this',
