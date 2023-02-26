@@ -7,8 +7,6 @@ Write a function to calculate factorial for a given input. If input is below 0 o
 More details about factorial can be found here.
 */
 
-        //NOT SUBMT TO GIT OR CODEWARS. FINISH IT
-
 function factorial(n){ 
   // with each loop take -1 from n, then * n with fact var
 
