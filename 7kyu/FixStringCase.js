@@ -43,7 +43,12 @@ function solve(s){
 }
 */
 
-const solve = s => s.split('').filter(el => el.match(/[A-Z]/g)).length > s.split('').filter(el => el.match(/[a-z]/g)).length ? s.toUpperCase(): s.toLowerCase();
+// const solve = s => s.split('').filter(el => el.match(/[A-Z]/g)).length > s.split('').filter(el => el.match(/[a-z]/g)).length ? s.toUpperCase(): s.toLowerCase();
+
+
+// replaces all Lowercase with empty string meaning removes rall Lowercase chars so only capital letters are left.
+  // If capital letters are greater than half the str length, turn whole str into uppercase. Otherwise turn whole str into lowercase.
+const solve = s => s.replace(/[a-z]/g,'').length > s.length/2 ? s.toUpperCase() : s.toLowerCase();
 
 solve("code")    //"code"
 solve("CODe")    //"CODE"
