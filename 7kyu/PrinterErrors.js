@@ -23,10 +23,11 @@ s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
 printerError(s) => "3/56"
 */
 
+/** 
 function printerError(s) {
   // return the length of str & sum/length of chars outside a-m
   
-/*
+// 
   // put s into arr, loop through it
     // if chars outside a-m, increment sum var or filter out
   let sCopy = s.split('').reduce((acc, el) => {
@@ -35,10 +36,17 @@ function printerError(s) {
   return acc}, 0);
 
   return sCopy + '/' + s.length;    //22/22  WHY didnt this work? come back & fix
-*/
+// 
 
   // im not getting the corect length of chars outside a-m like this. So instead of searching for chars outside a-m , deduct a-m from s str & thatll give the lenth/sum of chars outside a-m
   return s.replace(/[a-m]/g, "").length + "/" + s.length;
 }
+*/
+
+// const printerError = s => `${s.replace(/[a-m]/g,'').length}/${s.length}`
+
+const printerError = s => `${s.split("").reduce((acc, cur) => acc + (cur > "m") | 0)}/${s.length}`;
+
+
 printerError("aaaxbbbbyyhwawiwjjjwwm") //8/22
 printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz") //"3/56"
