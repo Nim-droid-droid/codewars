@@ -24,7 +24,11 @@ function index(array, n){
 }
 */
 
-const index = (array, n) => n >= array.length ? -1 : Math.pow(array[n], n);
+// const index = (array, n) => n >= array.length ? -1 : Math.pow(array[n], n);
+
+// using the exponentiation operator (**) raise whatever val is at nth index inside array to val of n, if that doesnt work (returns falsy) return -1 instead cuz thatll be the true (truthy) value.
+const index = (array, n) => array[n] ** n || -1;
+
 
 // couldnt figure out the logic so i looked at test cases to find the pattern then wrote that logic in the code
 index([1, 2, 3, 4],2)    //9  // so 3 (which is at the index 2) ^ 2 (n arg)
