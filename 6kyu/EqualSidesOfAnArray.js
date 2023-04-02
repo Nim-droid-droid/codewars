@@ -32,23 +32,28 @@ If you are given an array with multiple answers, return the lowest correct index
 */
 
 function findEvenIndex(arr){
-
-  let leftSum=0, rightSum=arr.reduce((sum, el) =>  sum + el, 0);
+      //COMMENT THIS
+  // let leftSum=0, rightSum=arr.reduce((sum, el) =>  sum + el, 0);
   
-  for(let i=0; i<arr.length; i++){
+  // for(let i=0; i<arr.length; i++){
     
-      if(i>0){
-        leftSum += arr[i-1]
-      }
+  //     if(i>0){
+  //       leftSum += arr[i-1]
+  //     }
 
-      rightSum -= arr[i]
+  //     rightSum -= arr[i]
 
-      if(leftSum === rightSum){
-        return i;
-      }
-    }
+  //     if(leftSum === rightSum){
+  //       return i;
+  //     }
+  //   }
   
-    return -1;
+  //   return -1;
+
+  
+  // sum = 0; initial val of sum
+  const sum = (a, from , to) => a.slice(from, to).reduce((a,b) => a + b, 0)
+  return arr.findIndex((el, i) => sum(arr.slice(0, i) ) === sum(arr.slice(i+1) ) );
 
 }
 
