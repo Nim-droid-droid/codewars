@@ -14,41 +14,50 @@ Example
 "ABBA" -> 2  # 'A' and 'B' each occur twice
 */
 
-function duplicateCount(text){
-  //How many chars occur twice not the number of re-occurrences
-  let duplicate=0;
-  // make everything case-insensitive
-  // store char & num in obj
-    // if no char, num occure more than 1, return 0. otherwise return number of char, num that occur more than 1
-  const txtObj = [...text.toLowerCase()].reduce((acc, el) => {
-    acc[el] = acc[el] + 1 || 1;
-    return acc
-  }, 
-  {});
+// function duplicateCount(text){
+//   //How many chars occur twice not the number of re-occurrences
+//   let duplicate=0;
 
-  // console.log(txtObj) //{1: 2, a: 2}
+//   // make everything case-insensitive
+//   // store char & num in obj
+//     // if no char, num occure more than 1, return 0. otherwise return number of char, num that occur more than 1
+  
+//   const txtObj = [...text.toLowerCase()].reduce((acc, el) => {
+//     // if el key already exist in acc obj, increment by 1, otherwise set its val to 1
+//     acc[el] = acc[el] + 1 || 1;
+//     // return acc obj to txtObj
+//     return acc
+//   }, 
+//   // const acc = {}
+//   {});
 
-  // cant use map/filter to iterat through obj
-  // return txtObj.map(el => copy[el] == 1 ? 0 : dublicate++)
+//   // console.log(txtObj) //{1: 2, a: 2}
 
-  // Grab all the keys from the txtObj object 
-  // then find the key whose value is odd 
-  // the convert that key from str to a number using Number()/+ & then return that number
-    // +/Number() obj cuz object keys are str data types so this needs to be converted since I want the key returned as a num
-  // return +Object.keys(txtObj).some(key => console.log(txtObj[key]) );
+//   // cant use map/filter to iterat through obj
+//   // return txtObj.map(el => copy[el] == 1 ? 0 : dublicate++)
 
-  // The for in loop iterates over txtObj object
-  // Each iteration returns a key (x)
-  // The key is used to access the value of the key
-  // The value of the key is txtObj[i]
-  for(let i in txtObj){
-    // Now that I can iterate through the keys in the object I can check if the current key I'm looping through has the value >1
-      // A key'z value is greater than 1, increment duplicate by 1
-    if(txtObj[i] >1){
-      duplicate++
-    }
-  }
-  return duplicate;
+//   // Grab all the keys from the txtObj object 
+//   // then find the key whose value is odd 
+//   // the convert that key from str to a number using Number()/+ & then return that number
+//     // +/Number() obj cuz object keys are str data types so this needs to be converted since I want the key returned as a num
+//   // return +Object.keys(txtObj).some(key => console.log(txtObj[key]) );
+
+//   // The for in loop iterates over txtObj object
+//   // Each iteration returns a key (x)
+//   // The key is used to access the value of the key
+//   // The value of the key is txtObj[i]
+//   for(let i in txtObj){
+//     // Now that I can iterate through the keys in the object I can check if the current key I'm looping through has the value >1
+//       // A key'z value is greater than 1, increment duplicate by 1
+//     if(txtObj[i] >1){
+//       duplicate++
+//     }
+//   }
+//   return duplicate;
+// }
+
+function duplicateCount(s) {
+  return (s.toLowerCase().split("").sort().join("").match(/([a-z])\1+/g) || []).length;
 }
 
 duplicateCount("aA11")    //2
