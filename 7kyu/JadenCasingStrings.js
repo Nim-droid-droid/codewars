@@ -17,8 +17,22 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 // toJadenCase("How can mirrors be real if our eyes aren't real") //"How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 
+// var str = "How can mirrors be real if our eyes aren't real";
+// String.prototype.toJadenCase = function () {
+//   return this.split(' ').map(el => el[0].toUpperCase() + el.slice(1)).join(' ')
+// };
+// str.toJadenCase()  //"How Can Mirrors Be Real If Our Eyes Aren't Real" 
+
+
 var str = "How can mirrors be real if our eyes aren't real";
 String.prototype.toJadenCase = function () {
-  return this.split(' ').map(el => el[0].toUpperCase() + el.slice(1)).join(' ')
+  // ( ) -> Capture in group group multiple tokens together and create Capture group for extracting substring
+  // ^ -> Beginning matches the beginning of a string or line
+
+  // | Alternation acts like a bull in or much is the expression before or after |
+  // [ ] Character set ->  match any character in this set (so all lower cases)
+    // so capture space before any a-z chars, & capture that 1st lowrcase letter of each word & using a CBF replace/turn it into an upper case.
+  
+  return this.replace(/(^|\s)[a-z]/g, letterAfterSpace => letterAfterSpace.toUpperCase());
 };
 str.toJadenCase()  //"How Can Mirrors Be Real If Our Eyes Aren't Real" 
