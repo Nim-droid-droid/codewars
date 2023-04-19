@@ -28,8 +28,11 @@ function between(a, b) {
     // i (1) + a (1) =2
     // i (2) + a (1) =3
     // i (3) + a (1) =4    4th loop
-  let arr = Array.from({length:(b-a+1)},(_,i)=>i+a);
-  return arr;
+  // let arr = Array.from({length:(b-a+1)},(_,i)=>i+a);
+  // return arr;
+
+    return Array.from({ length: b - a + 1 }, () => a++)
+  
 }
 
 between(1, 4)    //[1, 2, 3, 4]
