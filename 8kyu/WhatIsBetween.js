@@ -31,7 +31,16 @@ function between(a, b) {
   // let arr = Array.from({length:(b-a+1)},(_,i)=>i+a);
   // return arr;
 
-    return Array.from({ length: b - a + 1 }, () => a++)
+    // return Array.from({ length: b - a + 1 }, () => a++)
+
+    // [-2, -1, 0, 1, 2]
+    // Array(b - a + 1)  ->  [empty × 5]  Array obj returns an arr with 5 slots
+    // fill(1)  ->  [1, 1, 1, 1, 1]   fills those 5 slots with val of 1
+    // map(el => a++)   ->  map loops through each el (a) & increment by 1
+      // -2
+      // -2 + 1 = -1  1st loop
+      // -1 + 1 = 0 ...
+    return Array(b - a + 1).fill(1).map(el => a++);
   
 }
 
