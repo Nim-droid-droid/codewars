@@ -18,10 +18,18 @@ output: number as a string
 */
 
 const mxdiflg = (a1, a2) => {
-  let array = [];
-  if(a1.length && a2.length) {
-    a1.forEach(str1 => a2.forEach(str2 => array.push(Math.abs(str1.length - str2.length))))
-    return Math.max.apply(null, array);
-  } 
-  return -1;
+  // let array = [];
+  // if(a1.length && a2.length) {
+  //   a1.forEach(str1 => a2.forEach(str2 => array.push(Math.abs(str1.length - str2.length))))
+  //   return Math.max.apply(null, array);
+  // } 
+  // return -1;
+
+  // handle corner case 1st
+  let max = -1;
+  for(let i of a1)
+    for(let j of a2)
+      max = Math.max(max, Math.abs(i.length - j.length));
+      
+  return max;
 }
