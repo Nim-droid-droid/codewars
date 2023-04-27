@@ -18,6 +18,7 @@ output: number as a string
 */
 
 const mxdiflg = (a1, a2) => {
+/*
   // if(a1.length ==0 || a2.length === 0)
   // * cuz if any of multiplicator would be 0, the whole result will be zero.
   if(a1.length * a2.length === 0) return -1;
@@ -31,7 +32,7 @@ const mxdiflg = (a1, a2) => {
   const diffA1 = Math.abs(smallestA1 - largestA2);
   const diffA2 = Math.abs(largestA1 - smallestA2);
   return diffA1 > diffA2 ? diffA1 : diffA2
-
+*/
 
 
 
@@ -50,12 +51,15 @@ const mxdiflg = (a1, a2) => {
     for(let j of a2)
     // Math.abs() always return a positive num or 0
     // reassign/return the max value between max(which is -1) & the absolute val of abs(i.length - j.length) so either a positive num or 0, even 5-20=15 instead of -15 cuz of abs() 
-      // so is max (-1) > than Math.abs(i.length - j.length) (in this case lets say the calcultd val is 15)? No, return the calculation & reassign max var val (which is initially -1)
+      // so is max (-1) > than Math.abs(i.length - j.length) (in this case lets say the calcultd val is 15)? No, return the calculation & reassign max var val (which is initialelly -1)
       // Math.abs(i.length - j.length)=0 return -1 (which is initially val of max)
       max = Math.max(max, Math.abs(i.length - j.length));
       
   // then return max val
   return max;
 */
+
+if (a1.length < 1 || a2.length < 1) return -1;
+return Math.max(...a1.reduce((sum, el) => [...sum, ...a2.map((elmnt) => Math.abs(elmnt.length - el.length))], []));
 }
 mxdiflg(["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"], ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"])  //13
